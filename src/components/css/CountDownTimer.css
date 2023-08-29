@@ -1,0 +1,31 @@
+.countdown-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.timer-digit {
+  font-size: xx-large;
+  margin-top: 15px;
+}
+
+.red {
+  color: red;
+}
+
+.flashing {
+  animation: flashing-bg 1s infinite;
+}
+
+@keyframes flashing-bg {
+  0%,
+  50% {
+    background-color: inherit;
+  }
+  25%,
+  75% {
+    background-color: yellow;
+  }
+}
