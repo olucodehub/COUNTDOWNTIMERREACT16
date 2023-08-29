@@ -17,15 +17,6 @@ function App() {
 
   const countdownTimerRef = useRef(null);
 
-  //   const startCountdown = () => {
-  //     if (!running) {
-  //       setRunning(true);
-  //       if (countdownTimerRef.current) {
-  //         countdownTimerRef.current.startCountdown(hours, minutes, seconds);
-  //       }
-  //     }
-  //   };
-
   const stopCountdown = () => {
     if (running && countdownTimerRef.current) {
       countdownTimerRef.current.stopCountdown();
