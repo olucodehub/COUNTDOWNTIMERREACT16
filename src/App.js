@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import CountdownTimer from './components/CountDownTimer';
 import SumComponent from './components/SumComponent';
+import CountdownTimer from './components/CountDownTimer';
 import { InputComponent, ButtonComponent } from './components/HoverComponent';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
