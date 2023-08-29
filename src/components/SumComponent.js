@@ -2,17 +2,21 @@ export default function SumComponent() {
   const values = () => {
     const inputs = ['42', '1e3', '1.222', null, undefined, '-12'];
 
-    let sum = inputs.filter((value) => typeof value === 'string'); // Filter out non-string values null, undefined
+    // From the array, Filter out non-string values ex. null, undefined
+    let sum = inputs.filter((value) => typeof value === 'string');
 
-    sum = sum.map(parseFloat); // Convert strings to numbers using parseFloat
+    // From the array, Convert strings to numbers using parseFloat ex. 1e3
+    sum = sum.map(parseFloat);
 
     sum = sum.map((value) => {
+      // From the array, Convert decimals to interger equivalent and to a base 10 ex. 1.222 to 1222
       const numValue = parseInt(value.toString().replace('.', ''), 10);
-      return numValue; // Convert 1.222 to 1222
+      return numValue;
     });
 
     debugger;
-    sum = sum.filter((value) => !isNaN(value)); // Filter any NaN values
+    // If any, Filter out NaN values
+    sum = sum.filter((value) => !isNaN(value));
 
     sum = sum.reduce((acc, value) => acc + value, 0); // Sum the values
 

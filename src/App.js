@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import CountdownTimer from './components/CountDownTimer';
 import SumComponent from './components/SumComponent';
+import { InputComponent, ButtonComponent } from './components/HoverComponent';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -10,6 +12,8 @@ function App() {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [running, setRunning] = useState(true);
+  const [inputNumber, setInputNumber] = useState('');
+  const [hoveredNumber, setHoveredNumber] = useState(0);
 
   const countdownTimerRef = useRef(null);
 
@@ -27,6 +31,38 @@ function App() {
       countdownTimerRef.current.stopCountdown();
     }
     setRunning(false);
+  };
+
+  const handleInputChange = (e) => {
+    setInputNumber(e.target.value);
+  };
+
+  const handleButtonHover = () => {
+    const parsedNumber = parseInt(inputNumber, 10);
+    let result;
+
+    switch (parsedNumber) {
+      case 4:
+        result = 4;
+        break;
+      case 2:
+        result = 6;
+        break;
+      case 5:
+        result = 11;
+        break;
+      case 7:
+        result = 14;
+        break;
+      case 1:
+        result = 13;
+        break;
+      default:
+        result = 0;
+        break;
+    }
+
+    setHoveredNumber(result);
   };
 
   return (
@@ -90,10 +126,24 @@ function App() {
             <p>Sum Component</p>
             Value: <SumComponent />
           </div>
-          <div className='assignment-container bg-grey text-left p-3'>
+          <div className='assignment-container bg-grey text-left p-3 mt-3'>
             <h4>Assignment 3</h4>
             <p>Hover Component</p>
-            <SumComponent />
+            <div className='text-center'>
+              <InputComponent
+                value={inputNumber}
+                onChange={handleInputChange}
+                onKeyPress={(e) => {
+                  if (e.key === 'Enter') {
+                    handleButtonHover();
+                  }
+                }}
+              />
+              <ButtonComponent
+                hoveredNumber={hoveredNumber}
+                onMouseEnter={handleButtonHover}
+              />
+            </div>
           </div>
         </div>
       </header>
