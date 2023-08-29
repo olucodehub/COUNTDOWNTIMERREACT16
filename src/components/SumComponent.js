@@ -14,7 +14,6 @@ export default function SumComponent() {
       return numValue;
     });
 
-    debugger;
     // If any, Filter out NaN values
     sum = sum.filter((value) => !isNaN(value));
 
