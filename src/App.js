@@ -124,11 +124,6 @@ function App() {
               <InputComponent
                 value={inputNumber}
                 onChange={handleInputChange}
-                onKeyPress={(e) => {
-                  if (e.key === 'Enter') {
-                    handleButtonHover();
-                  }
-                }}
               />
               <ButtonComponent
                 hoveredNumber={hoveredNumber}
